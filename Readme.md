@@ -14,3 +14,22 @@
  limitations under the License.
 -->
 
+This is a Django + ReactJS project
+
+In order to run the backend first create a virtual environment
+and activate the virtual environment
+```bash
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+
+Install the requirements
+```bash
+$ pip install requirements.txt
+```
+
+Then run the following command
+```shell
+$ python manage.py runserver
+```
+
