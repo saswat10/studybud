@@ -1,7 +1,5 @@
-<nav>
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Profile</li>
-  </ul>
-</nav>
+<nav></nav>
+<form action="{% url 'home' %}" method="get">
+	<input type="text" name="q" placeholder="Search Rooms..." />
+</form>
+<hr />
