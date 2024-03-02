@@ -14,4 +14,5 @@ urlpatterns = [
     path("delete-message/<str:id>/", views.deleteMessage, name="delete-message"),
     path("update-user/", views.updateUser, name="update-user"),
     path("topics/", views.topics, name="topics"),
+    path("activity/", views.activity, name="activity"),
 ]
