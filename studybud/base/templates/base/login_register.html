@@ -22,7 +22,11 @@
   <div>
     <form action="" method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      {% for field in form %}
+        <label for="{{field.label}}">{{field.label}}</label>
+        {{field}}
+      {% endfor %}
+      
       <input type="submit" value="Register">
     </form>
     <p>Already signed up</p>

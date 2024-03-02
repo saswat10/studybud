@@ -10,6 +10,11 @@
 </style>
 
 <h1>{{user.username}}</h1>
+<p>About</p>
+<small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui voluptatibus, tempora perferendis natus veniam, iusto dolores unde reprehenderit itaque beatae ad ipsam fugit, eos ea placeat sequi voluptas facere asperiores harum nemo doloribus? Voluptatum?</small>
+{% if request.user == user%}
+<a href="{%url 'update-user'%}">Edit</a>
+{% endif %}
 
 <div class="profile-component">
   <div>
