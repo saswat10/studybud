@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+  .profile-component{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+</style>
+
+<h1>{{user.username}}</h1>
+
+<div class="profile-component">
+  <div>
+    <h3>Browse Topics</h3>
+    <hr>
+    {% include 'base/topic_component.html' %}
+  </div>
+  
+  <div>
+    <h3>Rooms Information</h3>
+    <hr>
+    {% include 'base/rooms_component.html' %}
+  </div>
+  
+  <div>
+    <h3>Recent Activity</h3>
+    <hr>
+    {% include 'base/activity_component.html' %}
+  </div>
+</div>
+
+{% endblock %}
