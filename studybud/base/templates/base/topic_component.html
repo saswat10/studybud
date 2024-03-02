@@ -6,3 +6,6 @@
   <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
 </div>
 {% endfor %}
+<a class="btn btn--link" href="{% url 'topics' %}">
+  More
+</a>

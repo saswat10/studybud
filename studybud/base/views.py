@@ -72,7 +72,7 @@ def home(request):
     room_count = rooms.count
     room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
 
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()[0:3]
     context = {
         "rooms": rooms,
         "topics": topics,
@@ -155,7 +155,7 @@ def updateRoom(request, id):
         room.save()
         return redirect("home")
 
-    context = {"form": form, 'topics': topics, 'room': room}
+    context = {"form": form, "topics": topics, "room": room}
     return render(request, "base/room_form.html", context)
 
 
@@ -185,16 +185,21 @@ def deleteMessage(request, id):
     return render(request, "base/delete.html", {"obj": message})
 
 
-@login_required(login_url='/login')
+@login_required(login_url="/login")
 def updateUser(request):
     user = request.user
     form = UserForm(instance=user)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect("user-profile" , id=user.id)
+            return redirect("user-profile", id=user.id)
 
-    return render(request, 'base/update_user.html' , {'form': form})
+    return render(request, "base/update_user.html", {"form": form})
 
+
+def topics(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    return render(request, 'base/topics.html', {'topics': topics})
