@@ -14,7 +14,7 @@
  limitations under the License.
 -->
 
-This is a Django + ReactJS project
+This is a Django project
 
 In order to run the backend first create a virtual environment
 and activate the virtual environment
